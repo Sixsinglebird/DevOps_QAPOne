@@ -102,12 +102,7 @@ public class SuggestionEngine {
         }
 
         SuggestionEngine suggestionEngine = new SuggestionEngine();
-        try {
-                suggestionEngine.loadDictionaryData(Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        suggestionEngine.loadDictionaryData(Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
         System.out.println(suggestionEngine.generateSuggestions(args[0]));
     }
 }
