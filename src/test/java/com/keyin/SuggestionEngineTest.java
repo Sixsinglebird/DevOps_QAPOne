@@ -17,6 +17,7 @@ class SuggestionEngineTest {
     @org.junit.jupiter.api.Test
     void generateSuggestions() throws IOException, URISyntaxException {
         suggestionEngine.loadDictionaryData(Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
-        Assertions.assertTrue(suggestionEngine.generateSuggestions("hellp").contains("hello"));
+        Assertions.assertTrue(suggestionEngine.generateSuggestions("hellp").contains("notaword"));
+
     }
 }
