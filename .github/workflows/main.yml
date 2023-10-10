@@ -1,20 +1,23 @@
-name: Prettier for JS Code
+name: Format Java Code
 
-on: [pull_request,workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  cleanup_tasks:
+  format-code:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Cloning the repository
-      uses: actions/checkout@v1
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Prettier Java Format
+      uses: tsar-boomba/prettier-java-format-action@main
       with:
-        fetch-depth: 1
-    - name: Prettify the Java Code
-      uses: lwerner-lshigh/prettier_action_java@v1.1.1
-      with:
-        prettier_options: '--no-semi --write *.java'
-        branch: ${{ github.head_ref }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        prettier-args: '--tab-width 4  --write'  # See: https://prettier.io/docs/en/options.html
+        files: '**/*.java'
+        commit: 'true'
+        github-username: 'github-actions'
+        commit-message: 'Format Java Code'
