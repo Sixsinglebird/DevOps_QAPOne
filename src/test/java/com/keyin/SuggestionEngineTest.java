@@ -18,5 +18,6 @@ class SuggestionEngineTest {
     void generateSuggestions() throws IOException, URISyntaxException {
         suggestionEngine.loadDictionaryData(Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
         Assertions.assertTrue(suggestionEngine.generateSuggestions("hellp").contains("notaword"));
+
     }
 }
