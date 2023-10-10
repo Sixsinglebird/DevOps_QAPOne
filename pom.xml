@@ -13,27 +13,6 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <profile>
-            <id>digma</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                        <configuration>
-                            <jvmArguments>-javaagent:${env.TMPDIR}/temp-digma-otel-jars/opentelemetry-javaagent.jar</jvmArguments>
-                            <systemPropertyVariables>
-                                <otel.exporter.otlp.traces.endpoint>http://localhost:5050</otel.exporter.otlp.traces.endpoint>
-                                <otel.traces.exporter>otlp</otel.traces.exporter>
-                                <otel.metrics.exporter>none</otel.metrics.exporter>
-                                <otel.service.name>${pom.artifactId}</otel.service.name>
-                                <otel.javaagent.extensions>${env.TMPDIR}/temp-digma-otel-jars/digma-otel-agent-extension.jar</otel.javaagent.extensions>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </properties>
     <dependencies>
         <dependency>
