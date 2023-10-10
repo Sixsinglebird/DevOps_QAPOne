@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class SuggestionEngineTest {
     SuggestionEngine suggestionEngine = new SuggestionEngine();
     @org.junit.jupiter.api.Test
-    void loadDictionaryData() throws URISyntaxException, IOException {
+    public void loadDictionaryData() throws URISyntaxException, IOException {
         suggestionEngine.loadDictionaryData(Paths.get(ClassLoader.getSystemResource("words.txt").toURI()));
     }
 
     @org.junit.jupiter.api.Test
-    void generateSuggestions() throws IOException, URISyntaxException {
+    public void generateSuggestions() throws IOException, URISyntaxException {
         suggestionEngine.loadDictionaryData(Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
         Assertions.assertTrue(suggestionEngine.generateSuggestions("hellp").contains("asdfasdfasd"));
 
