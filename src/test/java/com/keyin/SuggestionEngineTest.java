@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.*;
 
-class SuggestionEngineTest {
+public class SuggestionEngineTest {
     SuggestionEngine suggestionEngine = new SuggestionEngine();
     @org.junit.jupiter.api.Test
     public void loadDictionaryData() throws URISyntaxException, IOException {
