@@ -11,12 +11,12 @@ public class SuggestionEngineTest {
     SuggestionEngine suggestionEngine = new SuggestionEngine();
 
     @Test
-    public void loadDictionaryData() throws URISyntaxException, IOException {
+    public void testLoadDictionaryData() throws URISyntaxException, IOException {
         suggestionEngine.loadDictionaryData(Paths.get(ClassLoader.getSystemResource("words.txt").toURI()));
     }
 
    @Test
-    public void generateSuggestions() throws IOException, URISyntaxException {
+    public void testGenerateSuggestions() throws IOException, URISyntaxException {
         suggestionEngine.loadDictionaryData(Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
         Assertions.assertTrue(suggestionEngine.generateSuggestions("hellp").contains("sdafasdfgasdfg"));
 
